@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Public Trust and Urban Governance in Delhi, India</title>
+
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 36in 48in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 5.0e-2 - 5.0e-2 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(48in *  5.0e-2 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 5.0e-2);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 5.0e-2);
+margin-top: calc(48in * (1 - 5.0e-2));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>Public Trust and Urban Governance in Delhi, India</strong></h1><br>
+<h3 id="author" class="author">
+
+<strong>Shagun Gupta</strong><sup> 1</sup><br>
+<a class="twitter" href="https://mobile.twitter.com/shagunrgupta"><i class="fab fa-twitter"></i>&nbsp;&nbsp;@shagunrgupta</a><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:sg3537a@american.edu" class="email">sg3537a@american.edu</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> School of International Service, American University
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>By 2031, an estimated 600 million Indians will be living in urban areas, comprised on megacities such as Delhi, as well as smaller cities and towns that have emerged to meet the demands of a rapidly urbanizing population. While existing literature on democracy and decentralization establishes that citizens’ trust in local institutions is essential for effective delivery of public goods and services, we also know that local state capacity to respond to India’s rapidly urbanizing population remains limited.</p>
+<p>What explains variation in public trust in local democratic institutions, specifically the Municipal Corporation of Delhi (MCD), among citizens living in conditions of high urban informality?</p>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<p>The preliminary pilot survey comprised of 264 households across 8 unauthorized colonies in Southeast Delhi, combined with interviews with neighborhood association leaders in each colony. 246 households responded to the question on trust in the MCD.</p>
+<p>The survey was conducted with a team of 5 enumerators using a mobile data collection application (Kobo ToolBox). The figure below provides a distribution of household responses based on level of trust.</p>
+<p><img src="index_files/figure-html/methods%20figure-1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p>The following figures show the relationship between trust and gender, trust and religion, trust and caste, trust and income, and trust with the presence of a Residents’ Welfare Association (RWA) which is a type of neighborhood association in India.</p>
+<p><img src="index_files/figure-html/trust%20and%20gender-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/trust%20and%20religion-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/trust%20and%20caste-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/trust%20and%20income-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>RWAs are tasked with representing residents within a specific community. They often liason with local authorities on issues such as sanitation, cleanliness, infrastructure including schools and hospitals. The preliminary data suggests that having a RWA is correlated with higher levels of trust.</p>
+<p><img src="index_files/figure-html/trust%20and%20RWAs-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The table below presents results from a set of cumulative link models. The presence of a RWA is a significant predictor of higher levels of trust in government (along the ordinal scale). Especially interesting for this project is the highly significant and positive effect of trust in local political leaders, suggesting that trust in political leaders may also predict trust in local authorities even though the MCD’s work is not understood to be political in nature. This finding merits further inquiry in the next stage of the research.</p>
+<div class="figure">
+<img src="Table.png" alt="" />
+<p class="caption">Cumulative Link Model Results</p>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>Results show that women, Muslims and Scheduled Tribes tend to distrust the MCD. On the other hand, higher income is associated with higher levels of trust. A key finding is that the presence of a Residents’ Welfare Association (RWA), a type of neighborhood association is associated with higher levels of trust. This is also established through the cumulative link model regression results. In addition,being male and having trust in local political leaders is associated with higher levels of trust in the MCD.</p>
+</div>
+<div id="conclusion-and-next-steps" class="section level1">
+<h1>Conclusion and Next Steps</h1>
+<p>The preliminary results establish that there is indeed variation in trust in the MCD based on religion, caste and income. This study doesn’t control for additional factors such as level of education. Next steps in the project include a larger survey of ~1,200 households across South and East Delhi combined with an expanded set of interviews with neighborhood association leaders and residents.</p>
+</div>
+<div id="acknowledgements" class="section level1">
+<h1>Acknowledgements</h1>
+<p>I’m grateful for feedback and support from Prof. Adam Auerbach. Special thanks to Across Research and Communication Pvt. Ltd. for conducting the survey in Delhi, and to Umang Bhansali for excellent research assistance. This research is funded by the School of International Service, American University and the APSA Centennial Center.</p>
+</div>
+
+</div>
+<div class="main">
+<p></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=>
+</div>
+</div>
+
+
+
+</body>
+</html>
